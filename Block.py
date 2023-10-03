@@ -2,7 +2,7 @@ from mpi4py import MPI
 import numpy as np
 
 
-N = 2
+N = 10
 
 # коммуникатор
 comm = MPI.COMM_WORLD

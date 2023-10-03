@@ -18,7 +18,7 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 
-N = 1000
+N = 4
 
 
 np.random.seed(rank)

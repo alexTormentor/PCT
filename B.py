@@ -16,7 +16,7 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-N = 1000
+N = 100
 
 np.random.seed(rank)
 A = np.random.rand(N, N)
@@ -36,7 +36,7 @@ for neighbor_rank in neighbors[rank]:
 end_time = MPI.Wtime()
 
 print(f"Process {rank}: Result C =\n{C}")
-print(f"Process {rank}: Execution Time = {end_time - start_time} seconds")
+print(f"Process {rank}: Execution time = {end_time - start_time} seconds")
 
 if rank == 0:
     all_results = np.zeros((size, N, N))
@@ -47,4 +47,4 @@ comm.Gather(C, all_results, root=0)
 
 if rank == 0:
     final_result = np.sum(all_results, axis=0)
-    print("Final Result (Sum of All Matrices):\n", final_result)
+    print("Final result:\n", final_result)
